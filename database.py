@@ -7,16 +7,22 @@ class Database:
             host="localhost", user="root", passwd="12345", database="coursedb"
         )
         cursor = con.cursor()
-        return tuple(con, cursor)
+        return con, cursor
 
     def getAllCourse(self):
         con, cursor = self.__createCursor()
-        cursor.execute("insert")
-        con.commit()
-        pass
+        cursor.execute("select * from coursedb.course;")
+        data = cursor.fetchall()
+        print(data, con)
+        return data
 
-    def insertCourse(self):
+    def insertCourse(self, name, entity_name):
         con, cursor = self.__createCursor()
-        cursor.execute("insert")
+        sql = (
+            "insert into coursedb.course"
+            + "(id, name, entity_name) "
+            + f"values(0, '{name}', '{entity_name}');"
+        )
+        cursor.execute(sql)
         con.commit()
-        pass
+        return cursor.rowcount

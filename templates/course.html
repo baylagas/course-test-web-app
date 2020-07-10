@@ -25,9 +25,14 @@
         <th>Name</th>
         <th>Entity Name</th>
     </tr>
-    <tr>
-        <td>course pollito</td>
-        <td>entity</td>
-    </tr>
+    {% for course in courses %}
+        <tr>
+            <td>{{course[1]}}</td>
+            <td>{{course[2]}}</td>
+            <td>update</td>
+            <td>delete</td>
+        </tr>
+    {% endfor %}    
+
 </table>
 {% endblock content %}

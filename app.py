@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+from database import Database
 
 app = Flask(__name__)
 
@@ -10,12 +11,18 @@ def index():
 
 @app.route("/course", methods=["GET", "POST"])
 def course():
+    database = Database()
     if request.method == "GET":
-        print("get...")
-        return render_template("course.html")
+        data = database.getAllCourse()
+        print(data)
+        return render_template("course.html", courses=data)
     else:
-        print("post...")
-        redirect("/course")
+        print(request.form)
+        name = request.form["name"]
+        entity_name = request.form["entity_name"]
+        rows = database.insertCourse(name, entity_name)
+        print(f"{rows} rows affected")
+        return redirect("/course")
 
 
 if __name__ == "__main__":
