@@ -10,6 +10,24 @@
 <h1>Course</h1>
 <br>
 
-form<br>
-tabla<br>
+<form action="/course" method="POST">
+    name: <br>
+    <input type="text" name="name" id="name">
+    <br><br>
+    entity: <br>
+    <input type="text" name="entity_name" id="entity_name">
+    <br><br>
+    <input type="submit" value="New">
+</form>
+<br>
+<table style="width:50%" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Entity Name</th>
+    </tr>
+    <tr>
+        <td>course pollito</td>
+        <td>entity</td>
+    </tr>
+</table>
 {% endblock content %}

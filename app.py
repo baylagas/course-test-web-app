@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -15,6 +15,7 @@ def course():
         return render_template("course.html")
     else:
         print("post...")
+        redirect("/course")
 
 
 if __name__ == "__main__":
