@@ -13,6 +13,9 @@ def index():
 def course():
     database = Database()
     if request.method == "GET":
+        # codigo que toma el id y lo imprime
+        # form a la tabla y ponganle el method="GET"
+        # ocupar un input type=hidden para el id
         data = database.getAllCourse()
         print(data)
         return render_template("course.html", courses=data)

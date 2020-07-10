@@ -20,19 +20,21 @@
     <input type="submit" value="New">
 </form>
 <br>
-<table style="width:50%" border="1">
-    <tr>
-        <th>Name</th>
-        <th>Entity Name</th>
-    </tr>
-    {% for course in courses %}
+<form action="/course">
+    <table style="width:50%" border="1">
+        <tr>
+            <th>Name</th>
+            <th>Entity Name</th>
+        </tr>
+        {% for course in courses %}
         <tr>
             <td>{{course[1]}}</td>
             <td>{{course[2]}}</td>
-            <td>update</td>
+            <td><a href="/course?id={{course[0]}}">update</a></td>
             <td>delete</td>
         </tr>
-    {% endfor %}    
+        {% endfor %}
 
-</table>
+    </table>
+</form>
 {% endblock content %}
