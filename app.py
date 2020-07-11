@@ -43,5 +43,14 @@ def update(id):
         return redirect("/course")
 
 
+@app.route("/course/delete/<int:id>", methods=["GET"])
+def delete(id):
+    database = Database()
+    if request.method == "GET":
+        rows = database.deleteCourseById(id)
+        print(f"{rows} rows affected")
+        return redirect("/course")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

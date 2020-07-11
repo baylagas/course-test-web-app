@@ -53,3 +53,10 @@ class Database:
         cursor.execute(sql)
         con.commit()
         return cursor.rowcount
+
+    def deleteCourseById(self, id):
+        con, cursor = self.__createConCursor()
+        sql = f"delete from coursedb.course where id = {id}"
+        cursor.execute(sql)
+        con.commit()
+        return cursor.rowcount
