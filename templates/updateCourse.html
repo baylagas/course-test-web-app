@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Update Course</title>
+{% endblock head %}
+
+
+{% block content %}
+<h1>Update Course</h1>
+<br>
+
+<form action="/course/update/{{id}}" method="POST">
+    name: <br>
+    <input type="text" name="name" id="name" value="{{data[0][1]}}">
+    <br><br>
+    entity: <br>
+    <input type="text" name="entity_name" id="entity_name" value="{{data[0][2]}}">
+    <br><br>
+    <input type="hidden" name="id" id="id" value="{{id}}">
+    <input type="submit" value="Update">
+</form>
+
+{% endblock content %}
