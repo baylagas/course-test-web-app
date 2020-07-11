@@ -2,6 +2,7 @@
 
 
 {% block head %}
+<link rel="stylesheet" type="text/css" href="{{url_for("static", filename="css/styles.css")}}">
 <title>Course</title>
 {% endblock head %}
 
@@ -30,9 +31,11 @@
         <td>{{course[1]}}</td>
         <td>{{course[2]}}</td>
         <td><a href="/course/update/{{course[0]}}">update</a></td>
-        <td><a href="/course/delete/{{course[0]}}">delete</a></td>
+        <td><a href="/course/delete/{{course[0]}}" onmouseover="sendMessage('are you sure?')">delete</a></td>
     </tr>
     {% endfor %}
 
 </table>
+<input type="button" value="click me" onclick="sumOfNumbers(2,3)">
+<script src="{{url_for("static", filename="js/scripts.js")}}"></script>
 {% endblock content %}
